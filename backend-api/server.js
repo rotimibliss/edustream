@@ -11,10 +11,11 @@ const PORT = process.env.PORT || 3001;
 
 // ─── STEP 1: CORS must be FIRST — before everything else ─────────────────────
 app.use(cors({
-  origin: 'http://localhost:3000',
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  origin: [
+    "http://localhost:5173",
+    /https:\/\/.*\.vercel\.app$/
+  ],
+  credentials: true
 }));
 
 // ─── STEP 2: Body parsers ─────────────────────────────────────────────────────
