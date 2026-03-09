@@ -36,7 +36,10 @@ router.post('/login', async (req, res) => {
     }
 
     // Check admin user
-    if (username === 'Admin' && password === 'admin123') {
+    if (
+  username === process.env.ADMIN_USERNAME &&
+  password === process.env.ADMIN_PASSWORD
+) {
       // TODO: In production, admin password should be hashed in database
       const adminUser = {
         id: 'admin',
